@@ -5,6 +5,8 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        statisticService = StatisticService()
+        
         let questionFactory = QuestionFactory()
         questionFactory.setup(delegate: self)
         self.questionFactory = questionFactory
@@ -61,6 +63,7 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     private var currentQuestion: QuizQuestion?
     
     private var alertPresenter = AlertPresenter()
+    private var statisticService: StatisticServiceProtocol!
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         let questionStep = QuizStepViewModel(
@@ -78,9 +81,16 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     }
     
     private func show(quiz result: QuizResultsViewModel) {
+        let message = """
+        Ваш результат: \(correctAnswers)/\(questionsAmount)
+        Количество сыгранных квизов: \(statisticService.gamesCount)
+        Рекорд: \(statisticService.bestGame.correct)/\(statisticService.bestGame.total) (\(statisticService.bestGame.date.dateTimeString))
+        Средняя точность: \(String(format: "%.2f", statisticService.totalAccuracy))%
+        """
+        
         let model = AlertModel(
             title: result.title,
-            message: result.text,
+            message: message,
             buttonText: result.buttonText
         ) { [weak self] in
             guard let self = self else { return }
@@ -109,12 +119,11 @@ final class MovieQuizViewController: UIViewController, QuestionFactoryDelegate {
     
     private func showNextQuestionOrResults() {
         if currentQuestionIndex == questionsAmount - 1 {
-            let text = correctAnswers == questionsAmount ?
-            "Поздравляем, вы ответили на 10 из 10!" :
-            "Вы ответили на \(correctAnswers) из 10, попробуйте ещё раз!"
+            statisticService.store(correct: correctAnswers, total: questionsAmount)
+            
             let viewModel = QuizResultsViewModel(
                 title: "Этот раунд окончен!",
-                text: text,
+                text: "",
                 buttonText: "Сыграть ещё раз")
             show(quiz: viewModel)
         } else {

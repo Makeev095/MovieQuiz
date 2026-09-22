@@ -12,23 +12,12 @@ protocol MoviesLoading {
 }
 
 struct MoviesLoader: MoviesLoading {
-    private enum LoaderError: LocalizedError {
-        case emptyResult(String)
-        
-        var errorDescription: String? {
-            switch self {
-            case .emptyResult(let message):
-                return message
-            }
-        }
-    }
-    
     // MARK: - NetworkClient
     private let networkClient = NetworkClient()
     
     // MARK: - URL
     private var mostPopularMoviesUrl: URL {
-        guard let url = URL(string: "https://tv-api.com/en/API/Top250Movies/k_j4r66gt6") else {
+        guard let url = URL(string: "https://tv-api.com/api/top-250-movies?apikey=juv0ohccyeycmvbwn4du") else {
             preconditionFailure("Unable to construct mostPopularMoviesUrl")
         }
         return url
@@ -40,14 +29,7 @@ struct MoviesLoader: MoviesLoading {
             case .success(let data):
                 do {
                     let mostPopularMovies = try JSONDecoder().decode(MostPopularMovies.self, from: data)
-                    if mostPopularMovies.items.isEmpty {
-                        let message = mostPopularMovies.errorMessage.isEmpty
-                            ? "Не удалось загрузить данные"
-                            : mostPopularMovies.errorMessage
-                        handler(.failure(LoaderError.emptyResult(message)))
-                    } else {
-                        handler(.success(mostPopularMovies))
-                    }
+                    handler(.success(mostPopularMovies))
                 } catch {
                     handler(.failure(error))
                 }

@@ -17,6 +17,9 @@
 		A730B5D7303C9DA10067CD97 /* QuestionFactoryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730B5D6303C9DA10067CD97 /* QuestionFactoryDelegate.swift */; };
 		A730B5D9303CA63F0067CD97 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730B5D8303CA63F0067CD97 /* AlertPresenter.swift */; };
 		A730B5DB303CA6600067CD97 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730B5DA303CA6600067CD97 /* AlertModel.swift */; };
+		A754807130616CEB0070398C /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754807030616CEB0070398C /* NetworkClient.swift */; };
+		A754807330616EF90070398C /* MostPopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754807230616EF90070398C /* MostPopularMovies.swift */; };
+		A754807530616F3B0070398C /* MoviesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A754807430616F3B0070398C /* MoviesLoader.swift */; };
 		A7FAE905301A26D9001E7ED1 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7FAE903301A26D9001E7ED1 /* YS Display-Bold.ttf */; };
 		A7FAE906301A26D9001E7ED1 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7FAE904301A26D9001E7ED1 /* YS Display-Medium.ttf */; };
 		AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB12831907B00B3E448 /* AppDelegate.swift */; };
@@ -41,6 +44,9 @@
 		A730B5D6303C9DA10067CD97 /* QuestionFactoryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionFactoryDelegate.swift; sourceTree = "<group>"; };
 		A730B5D8303CA63F0067CD97 /* AlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenter.swift; sourceTree = "<group>"; };
 		A730B5DA303CA6600067CD97 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
+		A754807030616CEB0070398C /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		A754807230616EF90070398C /* MostPopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMovies.swift; sourceTree = "<group>"; };
+		A754807430616F3B0070398C /* MoviesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesLoader.swift; sourceTree = "<group>"; };
 		A7FAE903301A26D9001E7ED1 /* YS Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Bold.ttf"; sourceTree = "<group>"; };
 		A7FAE904301A26D9001E7ED1 /* YS Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YS Display-Medium.ttf"; sourceTree = "<group>"; };
 		AD1ABAAE2831907B00B3E448 /* MovieQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,7 @@
 				A730B5D0303C889D0067CD97 /* QuizResultsViewModel.swift */,
 				A730B5D2303C88A80067CD97 /* QuizQuestion.swift */,
 				A730B5DA303CA6600067CD97 /* AlertModel.swift */,
+				A754807230616EF90070398C /* MostPopularMovies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -86,6 +93,8 @@
 				A730B5D6303C9DA10067CD97 /* QuestionFactoryDelegate.swift */,
 				A71C2C4130446B8800747741 /* StatisticServiceProtocol.swift */,
 				A71C2C4330446CA200747741 /* StatisticService.swift */,
+				A754807030616CEB0070398C /* NetworkClient.swift */,
+				A754807430616F3B0070398C /* MoviesLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -229,17 +238,20 @@
 				AD5EE5DE284D7887003966EF /* UIColor+Extensions.swift in Sources */,
 				AD7AFA552836189F00399704 /* Array+Extensions.swift in Sources */,
 				A730B5D5303C905D0067CD97 /* QuestionFactoryProtocol.swift in Sources */,
+				A754807330616EF90070398C /* MostPopularMovies.swift in Sources */,
 				A730B5D7303C9DA10067CD97 /* QuestionFactoryDelegate.swift in Sources */,
 				A730B5DB303CA6600067CD97 /* AlertModel.swift in Sources */,
 				AD1ABAB62831907B00B3E448 /* MovieQuizViewController.swift in Sources */,
 				A730B5CF303C88920067CD97 /* QuizStepViewModel.swift in Sources */,
 				A730B5D3303C88A80067CD97 /* QuizQuestion.swift in Sources */,
+				A754807130616CEB0070398C /* NetworkClient.swift in Sources */,
 				A730B5D9303CA63F0067CD97 /* AlertPresenter.swift in Sources */,
 				A71C2C4230446B8800747741 /* StatisticServiceProtocol.swift in Sources */,
 				A71C2C4430446CA200747741 /* StatisticService.swift in Sources */,
 				A730B5CD303C86340067CD97 /* QuestionFactory.swift in Sources */,
 				AD77F5742857F8810062FB14 /* Date+Extensions.swift in Sources */,
 				AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */,
+				A754807530616F3B0070398C /* MoviesLoader.swift in Sources */,
 				A730B5D1303C889D0067CD97 /* QuizResultsViewModel.swift in Sources */,
 				AD1ABAB42831907B00B3E448 /* SceneDelegate.swift in Sources */,
 			);
@@ -400,7 +412,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,7 +442,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

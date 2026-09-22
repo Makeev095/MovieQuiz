@@ -86,7 +86,7 @@ class QuestionFactory: QuestionFactoryProtocol {
             
             guard let movie = self.movies[safe: index] else { return }
             
-            self.networkClient.fetch(url: movie.resizedImageURL) { [weak self] result in
+            self.networkClient.fetch(url: self.posterURL(for: movie)) { [weak self] result in
                 guard let self = self else { return }
                 
                 var imageData = Data()
@@ -112,5 +112,11 @@ class QuestionFactory: QuestionFactoryProtocol {
                 }
             }
         }
+    }
+    
+    private func posterURL(for movie: MostPopularMovie) -> URL {
+        let source = movie.resizedImageURL.absoluteString
+        let encoded = source.addingPercentEncoding(withAllowedCharacters: .alphanumerics) ?? source
+        return URL(string: "https://wsrv.nl/?url=\(encoded)&w=600") ?? movie.resizedImageURL
     }
 }

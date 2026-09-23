@@ -39,6 +39,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtg-Qv-L1C" userLabel="Index Label">
                                                 <rect key="frame" x="338" y="0.0" width="36" height="23.5"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Index"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="YP White"/>
                                                 <nil key="highlightedColor"/>
@@ -48,6 +49,7 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4iI-bm-Ioc" userLabel="Preview Image">
                                         <rect key="frame" x="0.0" y="43.5" width="374" height="561"/>
                                         <color key="backgroundColor" name="YP White"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Poster"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4iI-bm-Ioc" secondAttribute="height" multiplier="2:3" id="dLm-sx-lVV"/>
                                         </constraints>
@@ -69,6 +71,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2A-5Z-Xnn" userLabel="No Button">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="No"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="NhM-u5-NwO"/>
                                                 </constraints>
@@ -89,6 +92,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGn-f8-fZj" userLabel="Yes Button">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="60"/>
                                                 <color key="backgroundColor" name="YP White"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Yes"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Да">
@@ -110,17 +114,24 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="DR1-i6-02N">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" name="YP White"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="YP Black"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4LR-yX-oqB" secondAttribute="trailing" constant="20" id="6A8-C2-T8u"/>
+                            <constraint firstItem="DR1-i6-02N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7zh-oF-FlC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4LR-yX-oqB" secondAttribute="bottom" id="J7v-8X-aT9"/>
                             <constraint firstItem="4LR-yX-oqB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Nbz-ra-UiG"/>
+                            <constraint firstItem="DR1-i6-02N" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="j5O-aw-G0N"/>
                             <constraint firstItem="4LR-yX-oqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qGc-ls-Tyb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="DR1-i6-02N" id="xKk-Sh-xB3"/>
                         <outlet property="counterLabel" destination="Jtg-Qv-L1C" id="xkW-PR-XPQ"/>
                         <outlet property="imageView" destination="4iI-bm-Ioc" id="qbp-Jn-1lh"/>
                         <outlet property="textLabel" destination="EPv-RQ-vo2" id="35w-M2-nNs"/>
